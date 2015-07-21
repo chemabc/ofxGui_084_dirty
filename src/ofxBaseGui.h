@@ -101,9 +101,11 @@ protected:
 	static string saveStencilToHex(ofImage& img);
 	static void loadStencilFromHex(ofImage& img, unsigned char* data) ;
 
+	void setNeedsRedraw();
 	virtual void generateDraw(){};
 
 private:
 	unsigned long currentFrame;
     bool bRegisteredForMouseEvents;
+	bool needsRedraw;
 }; 

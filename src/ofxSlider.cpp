@@ -5,6 +5,7 @@ template<typename Type>
 ofxSlider<Type>::ofxSlider(){
 	bUpdateOnReleaseOnly = false;
 	bGuiActive = false;
+	mouseInside = false;
 }
 
 template<typename Type>
@@ -61,11 +62,8 @@ Type ofxSlider<Type>::getMax(){
 
 template<typename Type>
 bool ofxSlider<Type>::mouseMoved(ofMouseEventArgs & args){
-	if(isGuiDrawing() && b.inside(ofPoint(args.x,args.y))){
-		return true;
-	}else{
-		return false;
-	}
+	mouseInside = isGuiDrawing() && b.inside(ofPoint(args.x,args.y));
+	return mouseInside;
 }
 
 template<typename Type>
